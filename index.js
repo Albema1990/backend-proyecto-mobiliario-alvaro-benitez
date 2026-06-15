@@ -6,12 +6,16 @@ connectDB();
 
 import express from "express";
 
+import productRouter from "./src/routes/product.router.js"
+
 const app = express();
 
 
 app.get("/", (req, res) => {
     res.json({message: "Bienvenidos a la API de Hygge Coffee"});
 });
+
+app.use("/api/products", productRouter);
 
 const PORT = process.env.PORT || 3001;
 
