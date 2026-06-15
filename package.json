@@ -1,0 +1,16 @@
+{
+  "name": "backend-proyecto-mobiliario-alvaro-benitez",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "author": "Álvaro Benítez Mayorga",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
