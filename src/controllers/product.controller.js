@@ -1,5 +1,29 @@
 // Controllers para manejar las rutas de los productos
 
+// Controller para crear un producto
+
+export const createProduct = async (req, res) => {
+    try {
+        const { 
+            name,
+            category,
+            price,
+        } = req.body;
+
+        if (!name || !category || !price) {
+            return res
+            .status(422)
+            .json({message: "Todos los campos son obligatorios"});
+        } 
+
+        const product = await Product.create(req.body);
+
+        res.status(201).json(product);
+    } catch (error) {
+
+    }
+};
+
 // Controller para obtener todos los productos
 
 import Product from "../models/product.js";
