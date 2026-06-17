@@ -14,7 +14,7 @@ const products = [
     origin: "Etiopía, África",
     roast: "Medio",
     weight: "250g",
-    // image: coffeImage,
+    image: "/images/cafe.png",
     bestSeller: true,
     onSale: true
   },
@@ -28,7 +28,7 @@ const products = [
     origin: "Colombia, América",
     roast: "Medio",
     weight: "300g",
-    // image: coffeImage,
+    image: "/images/cafe.png",
     bestSeller: false,
     onSale: true
   },
@@ -42,7 +42,7 @@ const products = [
     origin: "Kenya, África",
     roast: "Medio",
     weight: "250g",
-    // image: coffeImage,
+    image: "/images/cafe.png",
     bestSeller: true,
     onSale: false
   },
@@ -56,7 +56,7 @@ const products = [
     origin: "Guatemala, América",
     roast: "Medio",
     weight: "500g",
-    // image: coffeImage,
+    image: "/images/cafe.png",
     bestSeller: false,
     onSale: true
   },
@@ -70,7 +70,7 @@ const products = [
     origin: "Brasil, América",
     roast: "Medio",
     weight: "250g",
-    // image: coffeImage,
+    image: "/images/cafe.png",
     bestSeller: true,
     onSale: true
   },
@@ -84,7 +84,7 @@ const products = [
     origin: "China, Asia",
     roast: "Medio",
     weight: "250g",
-    // image: teaimage,
+    image: "/images/teRojo.png",
     bestSeller: true,
     onSale: true
   },
@@ -98,7 +98,7 @@ const products = [
     origin: "China, Asia",
     roast: "Medio",
     weight: "250g",
-    // image: teaImage2,
+    mage: "/images/teNegro.png",
     bestSeller: true,
     onSale: true
   },
@@ -112,7 +112,7 @@ const products = [
     origin: "China, Asia",
     roast: "Medio",
     weight: "350g",
-    // image: teaImage3,
+    mage: "/images/teVerde.png",
     bestSeller: false,
     onSale: false
   },
@@ -126,7 +126,7 @@ const products = [
     origin: "Hamburg, Alemania",
     roast: "",
     weight: "",
-    // image: molinilloImage,
+    mage: "/images/molinillo.png",
     bestSeller: false,
     onSale: true
   },
@@ -140,7 +140,7 @@ const products = [
     origin: "Hamburg, Alemania",
     roast: "",
     weight: "",
-    // image: kitImage,
+    mage: "/images/kit.png",
     bestSeller: true,
     onSale: true
   },
@@ -154,7 +154,7 @@ const products = [
     origin: "Hamburg, Alemania",
     roast: "",
     weight: "",
-    // image: tapeteImage,
+    mage: "/images/tapete.png",
     bestSeller: true,
     onSale: false
   },
