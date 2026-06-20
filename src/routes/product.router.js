@@ -8,11 +8,13 @@ import {
   deleteProduct
 } from "../controllers/product.controller.js";
 
+import { authMiddleware } from "../middlewares/auth.middleware.js";
+
 const router = Router();
 
 //prefijo /api/products
 
-router.post("/", createProduct);
+router.post("/", authMiddleware, createProduct);
 
 router.get("/", getProducts);
 router.get("/:id", getProductById);
