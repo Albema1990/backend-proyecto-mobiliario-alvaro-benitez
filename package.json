@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "node --watch index.js"
+    "dev": "node --watch index.js",
+    "seed": "node src/seeders/product.seeder.js",
+    "test": "mocha --require test/setup.js --exit"
   },
   "author": "Álvaro Benítez Mayorga",
   "license": "MIT",
@@ -17,5 +19,10 @@
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.7.0"
+  },
+  "devDependencies": {
+    "chai": "^6.2.2",
+    "mocha": "^11.7.6",
+    "supertest": "^7.2.2"
   }
 }
