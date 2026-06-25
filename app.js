@@ -10,6 +10,8 @@ import productRouter from "./src/routes/product.router.js"
 
 import authRouter from "./src/routes/auth.router.js";
 
+import newsletterRouter from "./src/routes/newsletter.router.js";
+
 const app = express();
 
 app.use(express.json());
@@ -23,5 +25,7 @@ app.get("/", (req, res) => {
 app.use("/api/products", productRouter);
 
 app.use("/api/auth", authRouter);
+
+app.use("/api/newsletter", newsletterRouter);
 
 export default app;
