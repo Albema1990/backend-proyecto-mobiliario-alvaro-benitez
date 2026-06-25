@@ -27,7 +27,6 @@ export const getProducts = async (req, res) => {
     const products = await Product.find().select("-description -__v");
     res.json(products);
   } catch (error) {
-    console.log(error.message);
     res.status(500).json({ message: "Error al obtener los productos" });
   }
 };
@@ -46,7 +45,6 @@ export const getProductById = async (req, res) => {
 
     res.json(product);
   } catch (error) {
-    // console.log(error.message);
 
     res.status(500).json({ message: "Error al obtener el producto" });
   }
@@ -71,7 +69,6 @@ export const updateProduct = async (req, res) => {
 
     res.json(product);
   } catch (error) {
-    console.log(error);
   
   if (error.name === "ValidatorError") {
     return res
