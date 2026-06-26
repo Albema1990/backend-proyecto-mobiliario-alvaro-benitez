@@ -1,107 +1,177 @@
 # Backend Proyecto Cafe - Álvaro Benítez
 
+## Descripción
+
+API REST desarrollada con Node.js, Express y MongoDB Atlas para gestionar un catálogo de cafés de especialidad y accesorios.
+
+La API permite:
+
+- Gestión completa de productos (CRUD).
+- Registro e inicio de sesión de usuarios.
+- Autenticación mediante JWT.
+- Protección de rutas mediante middleware.
+- Panel de administración para usuarios administradores.
+- Gestión de suscripciones a la newsletter.
+- Persistencia de datos en MongoDB Atlas.
+- Tests de la API.
+
+## Tecnologías utilizadas
+- Node.js
+- Express
+- MongoDB Atlas
+- Mongoose
+- JWT
+- bcrypt
+- dotenv
+- cors
+- Jest
+- Supertest
+
+## Arquitectura
+src/
+├── config
+├── controllers
+├── middlewares
+├── models
+├── routes
+├── tests
+├── utils
+└── app.js
 
 ## Instalación
 
-1. Clona el repositorio
+Clonar el repositorio:
 
-```bash
-git clone <repository_url>
-```
+git clone https://github.com/Albema1990/backend-proyecto-mobiliario-alvaro-benitez.git
 
-2. Navega al directorio del proyecto:
-
-```bash
 cd backend-proyecto-mobiliario-alvaro-benitez
+
+git switch dev
 ```
 
-3. Cambiar a la rama dev:
+Cambiar a la rama dev:
 
 ```bash
 git switch dev
 ```
 
-4. Instala las dependencias:
+Instala las dependencias:
 
 ```bash
 npm install
 ```
 
-5. Crea un archivo `.env` basado en el archivo `.env-example` y configura tus variables de entorno:
+## Variables de entorno
 
-```bash
-cp .env-example .env
+Crear un archivo .env utilizando como referencia .env-example.
+
+Ejemplo:
+
+PORT=3000
+
+MONGO_URI=tu_uri_de_mongodb
+
+JWT_SECRET=tu_clave_secreta
+
+## Scripts
+
+Iniciar servidor:
 ```
-
-Luego, edita el archivo `.env` para agregar tu configuración personalizada, como el puerto y la URI de MongoDB.
-
-6. Inicia el servidor:
-```bash
 npm start
 ```
 
-Para desarrollo con recarga automática, puedes usar:
-``` bash
+Modo desarrollo:
+```
 npm run dev
 ```
-
-## Uso
-
-Una vez que el servidor esté en funcionamiento, puedes acceder a la API a través de `http://localhost:<PORT>/api`, donde <PORT> es el puerto que configuraste en tu archivo `.env`.
-
-## Obtener todos los productos
-
-método GET a `/api/products` para obtener una lista de todos los productos.
-
-response: 
-```json
-{
-    "oldPrice": 0,
-    "bestSeller": false,
-    "_id": "6a3059c58e90d67ece6726eb",
-    "name": "Etiopia",
-    "category": "Café",
-    "price": 16.95,
-    "image": "",
-    "onSale": true,
-    "origin": "Etiopía, África",
-    "roast": "Medio",
-    "weight": "250g",
-    "createdAt": "2026-06-15T20:00:05.124Z",
-    "updatedAt": "2026-06-15T20:00:05.124Z"
-  },
+Ejecutar tests:
+```
+npm test
 ```
 
-## Obtener un producto por su ID
+## Endpoints principales
+### Productos
+Método	Endpoint	Descripción
+GET	/api/products	Obtener todos los productos
+GET	/api/products/	Obtener un producto
+POST	/api/products	Crear producto (requiere autenticación)
+PUT	/api/products/	Actualizar producto
+DELETE	/api/products/	Eliminar producto
 
-método GET a `/api/products/:id` para obtener un producto por ID
+### Autenticación
+Método	Endpoint
+POST	/api/auth/register
+POST	/api/auth/login
 
-response:
+### Newsletter
+Método	Endpoint
+POST	/api/newsletter
 
-status 200
-```json
-{
-  "oldPrice": 0,
-  "bestSeller": false,
-  "_id": "6a3059c58e90d67ece6726eb",
-  "name": "Etiopia",
-  "description": "Café de especialidad con notas florales y cítricas",
-  "category": "Café",
-  "price": 16.95,
-  "image": "",
-  "onSale": true,
-  "origin": "Etiopía, África",
-  "roast": "Medio",
-  "weight": "250g",
-  "__v": 0,
-  "createdAt": "2026-06-15T20:00:05.124Z",
-  "updatedAt": "2026-06-15T20:00:05.124Z"
-}
-```
+### Modelos
+#### Product
+- name
+- description
+- category
+- price
+- oldPrice
+- image
+- onSale
+- bestSeller
+- origin
+- roast
+- weight
+- User
+- username
+- email
+- password
+- role
+- Newsletter
+- email
 
-status 404
-```json
-{
-    "message": "Producto no encontrado" 
-}
-```
+## Autenticación
+
+La autenticación se realiza mediante JWT.
+
+Tras iniciar sesión correctamente, el servidor genera un token que debe enviarse en la cabecera:
+
+Authorization: Bearer <token>
+
+Las rutas protegidas utilizan middleware para comprobar la autenticación y verificar que el usuario tenga permisos de administrador cuando sea necesario.
+
+## Middlewares
+
+La API incluye los siguientes middlewares:
+
+authMiddleware
+adminMiddleware
+
+Estos protegen las rutas privadas y limitan determinadas operaciones exclusivamente a usuarios administradores.
+
+## Base de datos
+
+La aplicación utiliza MongoDB Atlas junto con Mongoose para gestionar:
+
+Productos
+Usuarios
+Newsletter
+
+## Tests
+
+La API incluye tests utilizando:
+
+Jest
+Supertest
+
+Ejecutarlos mediante:
+
+npm test
+
+## Deploy
+
+Backend desplegado en:
+
+https://backend-proyecto-mobiliario-alvaro.vercel.app/
+
+## Autor
+
+Proyecto desarrollado por Álvaro Benítez Mayorga como proyecto final del Bootcamp Full Stack Web Development de NEOLAND.
